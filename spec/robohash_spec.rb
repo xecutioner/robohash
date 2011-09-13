@@ -3,7 +3,7 @@ describe Robohash do
   it "Should return the correct version string" do
     Robohash::VERSION.should == "0.0.1"
   end
-  
+
   it "Should return the correct version " do
     Robohash.Version.should == "0.0.1"
   end
@@ -26,4 +26,10 @@ describe Robohash do
     Robohash.default_directory.should eql("images/robots")
   end
 
+   #it "Should download the default number of images to download to default directory" do
+   # Robohash.get_images
+    #Dir.exists?('robo_hash_images').should eql(true)
+ # end
+
 end
+

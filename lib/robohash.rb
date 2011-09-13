@@ -13,16 +13,16 @@ module Robohash
   def Version; self::VERSION end
 
   def self.get_images
-    if Dir.exists? Default_directory
+    if Dir.exists? @default_directory
       self.Delete_directory
     else
-      Dir.mkdir(Default_directory)
+      Dir.mkdir(@default_directory)
     end
     (1..default_num).each{
       o =  [('a'..'z'),('A'..'Z')].map{|i| i.to_a}.flatten;
       string  =  (0..10).map{ o[rand(o.length)]  }.join;
       image = HTTParty.get "http://robohash.org/#{string}.png"
-      open( "#{Default_directory}/#{string}.png", 'wb' ) { |file|
+      open( "#{@default_directory}/#{string}.png", 'wb' ) { |file|
           file.write(image.body)
         }
     }
@@ -32,18 +32,18 @@ module Robohash
   private
   def delete_directory
     begin
-      Dir.delete(Default_directory)
+      Dir.delete(@default_directory)
     rescue Exception => e
       puts e.message
       puts "You still want to delete? (Y/N)"
       str = STDIN.getc.chr.downcase
       if str == "y"
-        Dir.foreach(Default_directory) {|f|
+        Dir.foreach(@default_directory) {|f|
           if  f == '.' or f == '..' then next
-          elsif File.directory?(f) then                     FileUtils.rm_rf("#{Default_directory}/#{f}")
-          else FileUtils.rm("#{Default_directory}/#{f}")
+          elsif File.directory?(f) then                     FileUtils.rm_rf("#{@default_directory}/#{f}")
+          else FileUtils.rm("#{@default_directory}/#{f}")
           end
-          Dir.mkdir(Default_directory)
+          Dir.mkdir(@default_directory)
         }
       elsif str=="n"
         exit
