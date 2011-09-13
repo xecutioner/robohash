@@ -4,12 +4,26 @@ describe Robohash do
     Robohash::VERSION.should == "0.0.1"
   end
   
-  it "Should get the default number of images to download" do
-     Robohash.default_num.should eql(3)
-   end
-   
+  it "Should return the correct version " do
+    Robohash.Version.should == "0.0.1"
+  end
+
   it "Should get the default number of images to download" do
     Robohash.default_num.should eql(3)
   end
-  
+
+  it "Should set the default number of images to download" do
+    Robohash.default_num=150
+    Robohash.default_num.should eql(150)
+  end
+
+  it "Should get the default directory of images to download to" do
+    Robohash.default_directory.should eql("robo_hash_images")
+  end
+
+  it "Should set the default directory of images to download to" do
+    Robohash.default_directory="images/robots"
+    Robohash.default_directory.should eql("images/robots")
+  end
+
 end

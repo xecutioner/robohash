@@ -3,13 +3,14 @@ require 'HTTParty'
 require 'fileutils'
 module Robohash
   @default_num = 3
+  @default_directory = "robo_hash_images"
+  
   module_function
   def default_num; @default_num end
   def default_num= v; @default_num = v end
-  
-  @default_directory = "robo_hash_images"
-
-  # Your code goes here...
+  def default_directory; @default_directory end
+  def default_directory= v; @default_directory = v end
+  def Version; self::VERSION end
   
   def self.get_images
     if Dir.exists? Default_directory
