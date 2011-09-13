@@ -2,19 +2,15 @@ require "robohash/version"
 require 'HTTParty'
 require 'fileutils'
 module Robohash
-
-  Default_num = 3
-  Default_directory = "robo_hash_images"
+  @default_num = 3
+  module_function
+  def default_num; @default_num end
+  def default_num= v; @default_num = v end
+  
+  @default_directory = "robo_hash_images"
 
   # Your code goes here...
-  def self.number num
-    default_num = num
-  end
-
-  def self.directory dir
-    default_directory = dir
-  end
-
+  
   def self.get_images
     if Dir.exists? Default_directory
       self.Delete_directory

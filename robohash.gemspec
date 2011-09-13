@@ -10,7 +10,8 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = %q{Robohash downloader}
   s.description = %q{Downloads random robot images from robohash.org}
-
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "httparty"
   s.rubyforge_project = "robohash"
 
   s.files         = `git ls-files`.split("\n")
