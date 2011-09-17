@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe Robohash do
   it "Should return the correct version string" do
-    Robohash::VERSION.should == "0.0.2"
+    Robohash::VERSION.should == "0.0.3"
   end
 
   it "Should return the correct version " do
