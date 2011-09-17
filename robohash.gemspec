@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Robohash::VERSION
   s.authors     = ["xecutioner"]
   s.email       = ["xecutioner.kapil@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "http://github.com/xecutioner/robohash"
   s.summary     = %q{Robohash downloader}
   s.description = %q{Downloads random robot images from robohash.org}
   s.add_development_dependency "rspec"
